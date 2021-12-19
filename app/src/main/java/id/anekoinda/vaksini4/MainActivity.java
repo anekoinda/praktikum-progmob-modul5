@@ -28,7 +28,7 @@ import static java.sql.Types.NULL;
 
 public class MainActivity extends AppCompatActivity {
     static int kondisi_kesehatan=0;
-    Button button_daftar;
+    Button buttonVaksin;
     EditText nik, nama, telepon;
     CheckBox check_tidak, check_flu, check_hamil;
     RadioGroup radioGroup;
@@ -44,77 +44,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         DBHelper db = new DBHelper(this);
 
-        keterangan = " ";
-        is_valid = "0";
-        nik = findViewById(R.id.input_nik);
-        nama = findViewById(R.id.input_nama);
-        telepon = findViewById(R.id.input_telepon);
-        button_daftar = findViewById(R.id.button_daftar);
-        radioGroup = findViewById(R.id.radio_jenkel);
-        check_tidak = findViewById(R.id.check_tidak);
-        check_flu = findViewById(R.id.check_flu);
-        check_hamil = findViewById(R.id.check_hamil);
-        seekbar_kondisi = findViewById(R.id.seekbar_kondisi);
-        persentase_kondisi = findViewById(R.id.persentase);
-        seekbar_kondisi.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                persentase_kondisi.setText(progress + ("%"));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-
-        button_daftar.setOnClickListener(new View.OnClickListener() {
+        buttonVaksin = findViewById(R.id.buttonVaksin);
+        buttonVaksin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selected_jenkel = radioGroup.getCheckedRadioButtonId();
-                jenis_kelamin = findViewById(selected_jenkel);
-
-                String kondisi_kesehatan = "";
-                if(check_flu.isChecked() && check_hamil.isChecked()){
-                    kondisi_kesehatan += "Flu, Hamil";
-                }
-                else{
-                    if(check_tidak.isChecked()) {
-                        kondisi_kesehatan += "Tidak ada keluhan";
-                    }
-                    if(check_flu.isChecked()) {
-                        kondisi_kesehatan += "Flu";
-                    }
-                    if(check_hamil.isChecked()) {
-                        kondisi_kesehatan += "Hamil";
-                    }
-                }
-
-                String txt_nik =  nik.getText().toString();
-                String txt_nama =  nama.getText().toString();
-                String txt_telepon =  telepon.getText().toString();
-                String txt_jenkel = jenis_kelamin.getText().toString();
-                String txt_kondisi = kondisi_kesehatan;
-                String txt_persentase = String.valueOf(seekbar_kondisi.getProgress());
-
-                Boolean checkinsert = db.insert(txt_nik, txt_nama, txt_telepon, txt_jenkel, txt_kondisi, txt_persentase, " ", "0");
-                if(checkinsert == true){
-                    Toast.makeText(MainActivity.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MainActivity.this, "Pendaftaran gagal", Toast.LENGTH_SHORT).show();
-                }
-
-                nik.setText(null);
-                nama.setText(null);
-                telepon.setText(null);
-                radioGroup.clearCheck();
-                check_flu.setChecked(false);
-                check_hamil.setChecked(false);
-                check_tidak.setChecked(false);
-                seekbar_kondisi.setProgress(0);
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
             }
         });
     }

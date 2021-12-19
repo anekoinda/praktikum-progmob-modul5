@@ -8,57 +8,6 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <!-- WAKTU PELAKSANAAN -->
-    <LinearLayout
-        android:id="@+id/time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp">
-        <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="@drawable/rounded_red">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_calendar">
-            </TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="14sp"
-                android:textColor="@color/greyfont"
-                android:text="Waktu Pelaksanaan">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:textSize="16sp"
-                android:textColor="@color/red"
-                android:text="24 September 2021, 10.00 WITA">
-            </TextView>
-        </LinearLayout>
-    </LinearLayout>
-    <!-- END WAKTU PELAKSANAAN -->
-
-    <!-- TEMPAT PELAKSANAAN -->
     <LinearLayout
         android:id="@+id/place"
         android:layout_width="match_parent"
@@ -70,95 +19,74 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="110dp"
             app:cardCornerRadius="16dp"
             android:layout_marginBottom="6dp">
-
             <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/rect"></LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="14dp"
-                android:gravity="center_vertical">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="80dp"
-                        android:layout_height="95dp"
-                        app:cardCornerRadius="16dp"
-                        android:layout_gravity="center_vertical">
-                        <ImageView
-                            android:id="@+id/gambar_lokasi"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/hospital"
-                            android:scaleType="centerCrop"/>
-                    </androidx.cardview.widget.CardView>
-
-                    <LinearLayout
-                        android:layout_marginLeft="91dp"
-                        android:layout_width="match_parent"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/label_lokasi"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lokasi pelaksanaan"
-                            android:fontFamily="@font/poppins_regular"
-                            android:textColor="@color/greyfont"
-                            android:textSize="14sp" />
+                        android:text="Jumlah penerima vaksinasi"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/nama_lokasi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="RS PTN Udayana"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textColor="@color/blackfont"
-                            android:textSize="16sp"
-                            android:layout_marginLeft="10dp"/>
+                    <TextView
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20.673.079"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:background="@drawable/ic_location"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="8dp"/>
-                            <TextView
-                                android:id="@+id/jalan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Jl. RS Unudd, Jimbaran, Kuta Selatan, Badung, Bali"
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"
-                                android:layout_marginLeft="4dp"
-                                android:layout_marginTop="8dp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </FrameLayout>
+                    <TextView
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="dari 271.789.092 populasi"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/vaksin"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/vaksin"/>
+                </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
     <!-- END TEMPAT PELAKSANAAN -->
 
     <!-- DATA PRIBADI -->
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="24dp"
@@ -167,169 +95,253 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NIK (Nomor Induk Kependudukan)"
+                android:text="Data Covid-19 di Indonesia"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/blackfont"
+                android:textStyle="bold"
                 android:textSize="14sp"
-                android:layout_marginBottom="8dp"/>
-
-            <EditText
-                android:id="@+id/input_nik"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/poppins_regular"
-                android:hint="5171046408010006"
-                android:inputType="number"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama lengkap"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/blackfont"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-
-            <EditText
-                android:id="@+id/input_nama"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/poppins_regular"
-                android:hint="John Doe"
-                android:inputType="textVisiblePassword|textNoSuggestions"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nomor telepon"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/blackfont"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-
-            <EditText
-                android:id="@+id/input_telepon"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/poppins_regular"
-                android:hint="081234567893"
-                android:inputType="number"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jenis kelamin"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/blackfont"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
-
-            <RadioGroup
-                android:id="@+id/radio_jenkel"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Perempuan"/>
-                <RadioButton
-                    android:id="@+id/male"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Laki-laki"/>
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kondisi kesehatan"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/blackfont"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/check_tidak"
-                    android:layout_marginRight="16dp"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tidak ada keluhan" />
-                <CheckBox
-                    android:id="@+id/check_flu"
-                    android:layout_marginRight="16dp"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_margin="16dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:background="@drawable/up"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Positif"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textColor="@color/greyfont"
+                                android:textSize="14sp"
+                                android:layout_marginStart="16dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.555.555"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginBottom="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Flu" />
-                <CheckBox
-                    android:id="@+id/check_hamil"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginEnd="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_margin="16dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:background="@drawable/sembuh"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sembuh"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textColor="@color/greyfont"
+                                android:textSize="14sp"
+                                android:layout_marginStart="16dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.555.555"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginBottom="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/datacovid"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hamil" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        android:layout_marginBottom="6dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_margin="16dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:background="@drawable/dead"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Meninggal"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textColor="@color/greyfont"
+                                android:textSize="14sp"
+                                android:layout_marginStart="16dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.555.555"
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginBottom="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Persentase kesehatan"
+                android:text="Lokasi Vaksinasi"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/blackfont"
+                android:textStyle="bold"
                 android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"/>
 
-            <SeekBar
-                android:id="@+id/seekbar_kondisi"
-                style="@style/Widget.AppCompat.SeekBar"
+            <!-- TEMPAT PELAKSANAAN -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="100"
-                android:progress="0" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/persentase"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="0%"
-                android:textSize="14sp" />
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="6dp">
 
-            <Button
-                android:id="@+id/button_daftar"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:cardCornerRadius="16dp"
+                                android:layout_gravity="center_vertical">
+                                <ImageView
+                                    android:id="@+id/gambar_lokasi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@drawable/hospital"
+                                    android:scaleType="centerCrop"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <LinearLayout
+                                android:layout_marginLeft="91dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/nama_lokasi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="RS PTN Udayana"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/blackfont"
+                                    android:textSize="16sp"
+                                    android:layout_marginLeft="10dp"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="16dp"
+                                        android:layout_height="16dp"
+                                        android:background="@drawable/ic_location"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="8dp"/>
+                                    <TextView
+                                        android:id="@+id/jalan"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Jl. RS Unud, Jimbaran, Kuta Selatan, Badung, Bali"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:textColor="@color/greyfont"
+                                        android:textSize="14sp"
+                                        android:layout_marginLeft="4dp"
+                                        android:layout_marginTop="8dp"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+            <!-- END TEMPAT PELAKSANAAN -->
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                style="@style/Widget.MaterialComponents.Button"
-                android:text="Kirim pendaftaran"
-                android:textColor="@color/white"/>
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:gravity="bottom">
+                <Button
+                    android:id="@+id/buttonVaksin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/custom_button"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="Daftar sekarang"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+            </LinearLayout>
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-    <!-- END DATA PRIBADI -->
 </LinearLayout>
