@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vaksini4">
         <activity
+            android:name=".PilihRumahSakit"
+            android:exported="false" />
+        <activity
             android:name=".PilihVaksin"
             android:exported="false" />
         <activity
