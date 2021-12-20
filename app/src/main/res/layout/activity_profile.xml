@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile"
+    android:background="#F6F6F6"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgradius"
+        android:elevation="12dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="32dp"
+        android:paddingRight="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Profil"
+        android:textColor="@color/blackfont"
+        android:textSize="20sp"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/inputNama"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_email_icon"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Nama Lengkap"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/inputNik"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_nik_icon"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="NIK (Nomor Induk Kependudukan)"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/inputTelepon"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_phone_icon"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Nomor Telepon"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:gravity="bottom">
+            <Button
+                android:id="@+id/buttonVaksin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/custom_button"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="SIMPAN"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
