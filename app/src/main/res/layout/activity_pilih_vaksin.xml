@@ -8,4 +8,18 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <EditText
+        android:id="@+id/inputTelepon"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_phone_icon"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Nomor Telepon"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="16sp" />
 </LinearLayout>
