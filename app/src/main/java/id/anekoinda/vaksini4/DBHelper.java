@@ -33,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean insert(String nik, String nama, String telepon,
                           String jenis_kelamin, String kondisi_kesehatan,
-                          String progress, String keterangan, String is_valid) {
+                          String progress) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nik", nik);
@@ -42,8 +42,6 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("jenis_kelamin", jenis_kelamin);
         contentValues.put("kondisi_kesehatan", kondisi_kesehatan);
         contentValues.put("persentase_kondisi", progress);
-        contentValues.put("keterangan", keterangan);
-        contentValues.put("is_valid", is_valid);
         long result = db.insert("data_vaksin", null, contentValues);
         if (result == -1) {
             return false;
