@@ -23,7 +23,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE data_vaksin(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, jenis_kelamin TEXT, kondisi_kesehatan TEXT, persentase_kondisi TEXT, keterangan TEXT DEFAULT '', is_valid TEXT)");
+        db.execSQL("CREATE TABLE data_register(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, password TEXT)");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -43,6 +45,22 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("kondisi_kesehatan", kondisi_kesehatan);
         contentValues.put("persentase_kondisi", progress);
         long result = db.insert("data_vaksin", null, contentValues);
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public Boolean insert(String nik, String nama, String telepon,
+                          String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nik", nik);
+        contentValues.put("nama", nama);
+        contentValues.put("telepon", telepon);
+        contentValues.put("password", password);
+        long result = db.insert("data_register", null, contentValues);
         if (result == -1) {
             return false;
         } else {
@@ -78,4 +96,5 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 }
+
 

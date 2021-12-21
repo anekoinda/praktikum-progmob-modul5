@@ -11,14 +11,45 @@ import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class daftar extends AppCompatActivity {
-
-    @Override
+    Button button_register;
+    EditText nama, nik, telepon, password;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
+        DBHelper db = new DBHelper(this);
+
+        nama = findViewById(R.id.inputNama);
+        nik = findViewById(R.id.inputNik);
+        telepon = findViewById(R.id.inputTelepon);
+        password= findViewById(R.id.inputPassword);
+        button_register = findViewById(R.id.button_register);
+
+        button_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String txt_nik =  nik.getText().toString();
+                String txt_nama =  nama.getText().toString();
+                String txt_telepon =  telepon.getText().toString();
+                String txt_password = password.getText().toString();
+
+                Boolean checkinsert = db.insert(txt_nik, txt_nama, txt_telepon, txt_password);
+                if(checkinsert == true){
+                    Toast.makeText(daftar.this, "Register berhasil", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(daftar.this, "Register gagal", Toast.LENGTH_SHORT).show();
+                }
+
+                nik.setText(null);
+                nama.setText(null);
+                telepon.setText(null);
+                password.setText(null);
+            }
+        });
+
     }
 }
