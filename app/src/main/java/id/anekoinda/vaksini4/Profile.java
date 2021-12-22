@@ -15,7 +15,7 @@ public class Profile extends AppCompatActivity {
 
     private EditText edNama, edNik, edTelepon;
     private Button btnVaksin;
-    private ArrayList<ModelRs> items;
+
     String nikUser;
     Integer Id;
     String Nik, Nama, Telepon;
