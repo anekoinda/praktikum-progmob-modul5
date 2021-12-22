@@ -18,14 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class AdapterRS extends RecyclerView.Adapter<AdapterRS.viewholder> {
+public class AdapterPilihRs extends RecyclerView.Adapter<AdapterPilihRs.viewholder> {
 
     ArrayList<ModelRs> dataholder = new ArrayList<>();
     Context context;
     SQLiteDatabase sqLiteDatabase;
     TextView is_valid;
 
-    public AdapterRS(ArrayList<ModelRs> dataholder, Context context, SQLiteDatabase sqLiteDatabase) {
+    public AdapterPilihRs(ArrayList<ModelRs> dataholder, Context context, SQLiteDatabase sqLiteDatabase) {
         this.dataholder = dataholder;
         this.context = context;
     }
@@ -42,7 +42,6 @@ public class AdapterRS extends RecyclerView.Adapter<AdapterRS.viewholder> {
         holder.nama.setText(dataholder.get(position).getNama_rs());
         holder.jalan.setText(dataholder.get(position).getJalan());
         holder.waktu.setText(dataholder.get(position).getWaktu());
-        holder.vaksin.setText(dataholder.get(position).getVaksin());
     }
 
     @Override
@@ -51,14 +50,15 @@ public class AdapterRS extends RecyclerView.Adapter<AdapterRS.viewholder> {
     }
 
     class viewholder extends RecyclerView.ViewHolder{
-        TextView nama, jalan, waktu, vaksin;
+        TextView nama, jalan, waktu;
         Button button_delete, button_update;
         public viewholder(@NonNull View itemView){
             super(itemView);
             nama = (TextView) itemView.findViewById(R.id.nama);
             jalan = (TextView) itemView.findViewById(R.id.jalan);
             waktu = (TextView) itemView.findViewById(R.id.waktu);
-            vaksin = (TextView) itemView.findViewById(R.id.vaksin);
         }
     }
+
+
 }

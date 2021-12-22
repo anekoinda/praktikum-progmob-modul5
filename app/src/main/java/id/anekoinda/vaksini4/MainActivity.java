@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursorRs = new DBHelper(this).readDataRs();
 
         while(cursorRs.moveToNext()){
-            ModelRs obj = new ModelRs(cursorRs.getString(0), cursorRs.getString(1), cursorRs.getString(2), cursorRs.getString(3));
+            ModelRs obj = new ModelRs(cursorRs.getString(0), cursorRs.getString(1), cursorRs.getString(2), cursorRs.getString(3), cursorRs.getString(4));
             dataholder.add(obj);
         }
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         buttonVaksin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PilihVaksin.class);
+                Intent intent = new Intent(getApplicationContext(), PilihRumahSakit.class);
                 startActivity(intent);
             }
         });
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.tiket) {
             startActivity(new Intent(this, TiketPendaftaran.class));
         } else if (item.getItemId() == R.id.logout) {
-            //startActivity(new Intent(this, SettingActivity.class));
+            startActivity(new Intent(this, login.class));
         }
         return true;
     }
