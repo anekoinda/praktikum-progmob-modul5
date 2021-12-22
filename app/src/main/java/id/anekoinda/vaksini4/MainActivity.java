@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.tiket) {
             startActivity(new Intent(this, TiketPendaftaran.class));
         } else if (item.getItemId() == R.id.logout) {
-            //startActivity(new Intent(this, SettingActivity.class));
+            startActivity(new Intent(this, login.class));
         }
         return true;
     }

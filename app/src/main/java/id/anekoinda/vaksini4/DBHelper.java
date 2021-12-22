@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class DBHelper extends SQLiteOpenHelper {
     private final Context context;
-    public static final String DBNAME = "vaksini.db";
 
     public DBHelper(Context context) {
         super(context, "database_vaksini", null, 1);
@@ -28,10 +27,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE data_registrasi(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, password TEXT)");
         db.execSQL("CREATE TABLE data_covid(positif INT, negatif INT, meninggal INT)");
         db.execSQL("INSERT INTO " + "data_covid" + "(positif, negatif, meninggal) VALUES (2000, 454, 23)");
-        db.execSQL("CREATE TABLE data_rs(id_rs INT PRIMARY KEY, nama_rs TEXT, jalan TEXT, waktu TEXT)");
-        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu) VALUES (1,'RS PTN Udayana', 'Jalan RS Unud, Jimbaran, Kuta Selatan, Badung, Bali', '12 Desember 2021 10.00 WITA')");
-        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu) VALUES (2,'RS Wangaya', 'Jalan RS Unud, Jimbaran, Kuta Selatan, Badung, Bali', '12 Desember 2021 10.00 WITA')");
-        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu) VALUES (3,'RS Sanglah', 'Jalan RS Unud, Jimbaran, Kuta Selatan, Badung, Bali', '12 Desember 2021 10.00 WITA')");
+        db.execSQL("CREATE TABLE data_rs(id_rs INT PRIMARY KEY, nama_rs TEXT, jalan TEXT, waktu TEXT, id_vaksin TEXT)");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu, id_vaksin) VALUES (1,'RS PTN Udayana', 'Jl Mawar 1, Mengwi, Bali', '12 Desember 2021 10.00 WITA', '1')");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu, id_vaksin) VALUES (2,'RS Wangaya', 'Jl Mawar 2, Mengwi, Bali', '12 Desember 2021 10.00 WITA', '1')");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu, id_vaksin) VALUES (3,'RS Sanglah', 'Jl Mawar 3, Mengwi, Bali', '12 Desember 2021 10.00 WITA', '2')");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu, id_vaksin) VALUES (4,'RS Kapal', 'Jl Mawar 4, Mengwi, Bali', '12 Desember 2021 10.00 WITA', '2')");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu, id_vaksin) VALUES (5,'Puskesmas Mengwi', 'Jl Mawar 5, Mengwi, Bali', '12 Desember 2021 10.00 WITA', '1')");
     }
 
     @Override
@@ -103,6 +104,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor readDataRs() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = ("SELECT*FROM data_rs ORDER BY id_rs ASC LIMIT 3");
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+    public Cursor readDataRsVaksin() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = ("SELECT*FROM data_rs");
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }

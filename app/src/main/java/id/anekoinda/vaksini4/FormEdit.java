@@ -37,7 +37,6 @@ public class FormEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_edit);
         DBHelper db = new DBHelper(this);
-
         findid();
 
         if (getIntent().getBundleExtra("datavaksin") != null) {
