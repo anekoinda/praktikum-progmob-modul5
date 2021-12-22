@@ -5,7 +5,6 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 
 public class PilihVaksin extends AppCompatActivity {
@@ -14,7 +13,7 @@ public class PilihVaksin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pilih_vaksin);
+        setContentView(R.layout.item_pilih_vaksin);
 
         vaksin = findViewById(R.id.vaksin);
         vaksin.setOnClickListener(new View.OnClickListener() {

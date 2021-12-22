@@ -1,135 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    tools:context=".PilihVaksin"
-    android:orientation="vertical">
+    android:background="@color/blue_primary">
 
-    <!-- TEMPAT PELAKSANAAN -->
-    <LinearLayout
-        android:id="@+id/place"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/vaksin"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            android:layout_marginBottom="6dp">
+            android:fontFamily="@font/poppins_medium"
+            android:text="Jenis Vaksin"
+            android:textColor="@color/white"
+            android:textSize="23sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Jenis Vaksin"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="115dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/radius_main"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical"
-                android:padding="14dp"
-                android:gravity="center_vertical">
+                android:paddingTop="10dp"
+                android:paddingBottom="30dp">
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:cardCornerRadius="16dp"
-                        android:layout_gravity="center_vertical">
-                        <ImageView
-                            android:id="@+id/gambar_lokasi"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/hospital"
-                            android:scaleType="centerCrop"/>
-                    </androidx.cardview.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24dp">
 
-                    <LinearLayout
-                        android:layout_marginLeft="91dp"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_data_vaksin"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/nama_lokasi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nama Vaksin"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textColor="@color/blackfont"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/labelDosis"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dosis : "
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"/>
-                            <TextView
-                                android:id="@+id/dosis"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2"
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Tipe : "
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Viral vector"
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Efisiensi : "
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="70%"
-                                android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/greyfont"
-                                android:textSize="14sp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </FrameLayout>
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        tools:listitem="@layout/item_pilih_vaksin"></androidx.recyclerview.widget.RecyclerView>
+                </RelativeLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-    <!-- END TEMPAT PELAKSANAAN -->
-</LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

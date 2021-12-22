@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class DBHelper extends SQLiteOpenHelper {
     private final Context context;
+    public static final String DBNAME = "vaksini.db";
 
     public DBHelper(Context context) {
         super(context, "vaksini.db", null, 1);
@@ -67,6 +68,15 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public boolean checknikpassword(String nik, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from data_registrasi where nik = ? and password = ?", new String[] {nik, password});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
     }
 
     public Cursor readalldata() {
