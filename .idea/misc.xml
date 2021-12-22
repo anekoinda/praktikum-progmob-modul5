@@ -17,6 +17,7 @@
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/drawable/ic_phone.xml" value="0.290625" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/drawable/ic_phone_focused.xml" value="0.290625" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_daftar.xml" value="0.27447916666666666" />
+        <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_data.xml" value="0.14375" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_home.xml" value="0.27447916666666666" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_login.xml" value="0.2604166666666667" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -24,6 +25,7 @@
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_pilih_vaksin.xml" value="0.27447916666666666" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_profile.xml" value="0.14375" />
         <entry key="..\:/Mobile/Vaksini4/app/src/main/res/layout/activity_tiket_pendaftaran.xml" value="0.2604166666666667" />
+        <entry key="..\:/Mobile/Vaksini4/app/src/main/res/menu/menu.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

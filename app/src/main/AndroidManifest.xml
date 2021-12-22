@@ -10,23 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vaksini4">
         <activity
-            android:name=".TiketPendaftaran"
-            android:exported="false" />
+            android:name=".TiketPendaftaran"/>
         <activity
-            android:name=".Profile"
-            android:exported="false" />
+            android:name=".Profile" />
         <activity
-            android:name=".PilihRumahSakit"
-            android:exported="false" />
+            android:name=".PilihRumahSakit"/>
         <activity
-            android:name=".PilihVaksin"
-            android:exported="false" />
+            android:name=".PilihVaksin"/>
         <activity
-            android:name=".daftar"
-            android:exported="false" />
+            android:name=".daftar"/>
         <activity
-            android:name=".Home"
-            android:exported="false" />
+            android:name=".Home" />
         <activity android:name=".FormEdit" />
         <activity android:name=".Data" />
         <activity android:name=".MainActivity" />

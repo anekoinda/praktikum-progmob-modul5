@@ -8,6 +8,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,6 +31,7 @@ import static java.sql.Types.NULL;
 public class MainActivity extends AppCompatActivity {
     static int kondisi_kesehatan=0;
     Button buttonVaksin;
+    SQLiteDatabase sqLiteDatabase;
     EditText nik, nama, telepon;
     CheckBox check_tidak, check_flu, check_hamil;
     RadioGroup radioGroup;
@@ -37,18 +40,26 @@ public class MainActivity extends AppCompatActivity {
     TextView persentase_kondisi;
     String keterangan;
     String is_valid;
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBHelper db = new DBHelper(this);
-
+        DBHelper dbHelper = new DBHelper(MainActivity.this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        SQLiteDatabase dbWrite = dbHelper.getWritableDatabase();
+        dbWrite.execSQL("INSERT INTO tb_data_vaksin VALUES('22.500','900','899')");
+        cursor = db.rawQuery("SELECT*FROM tb_data_vaksin", null);
+        cursor.moveToFirst();
+//        for (int i = 0; i<cursor.getCount(); i++){
+//            cursor.getString(1), cursor.getString(1), cursor.getString(1);
+//        }
         buttonVaksin = findViewById(R.id.buttonVaksin);
         buttonVaksin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
+                Intent intent = new Intent(getApplicationContext(), PilihVaksin.class);
                 startActivity(intent);
             }
         });
@@ -61,12 +72,13 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu, menu);
         //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.data){
-            startActivity(new Intent(this, Data.class));
+        if (item.getItemId() == R.id.profil){
+            startActivity(new Intent(this, Profile.class));
+        } else if (item.getItemId() == R.id.tiket) {
+            startActivity(new Intent(this, TiketPendaftaran.class));
         } else if (item.getItemId() == R.id.logout) {
             //startActivity(new Intent(this, SettingActivity.class));
         }
