@@ -22,7 +22,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE data_vaksin(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, jenis_kelamin TEXT, kondisi_kesehatan TEXT, persentase_kondisi TEXT, keterangan TEXT DEFAULT '', is_valid TEXT)");
+        db.execSQL("CREATE TABLE data_vaksin(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, jenis_kelamin TEXT, kondisdi_kesehatan TEXT, persentase_kondisi TEXT, keterangan TEXT DEFAULT '', is_valid TEXT)");
+        db.execSQL("create table rs(id integer primary key, nama text, alamat text, vaksin text);");
+        db.execSQL("INSERT INTO rs (id, nama, alamat, vaksin) VALUES ('01', 'RS Sanglah', 'Sanglah', 'Pfizer');");
+        db.execSQL("INSERT INTO rs (id, nama, alamat, vaksin) VALUES ('02', 'RS Udayana', 'Jimbaran', 'Sinovac');");
+        db.execSQL("INSERT INTO rs (id, nama, alamat, vaksin) VALUES ('03', 'RS Sanglah', 'Sanglah', 'Moderna');");
+        db.execSQL("INSERT INTO rs (id, nama, alamat, vaksin) VALUES ('04', 'RS Karangasem', 'Karangase', 'Sinovac');");
+        db.execSQL("INSERT INTO rs (id, nama, alamat, vaksin) VALUES ('05', 'Permata Ibu', 'Kedonganan', 'Pfizer');");
+
         db.execSQL("CREATE TABLE data_register(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, password TEXT)");
     }
 
@@ -94,6 +101,37 @@ public class DBHelper extends SQLiteOpenHelper {
             Intent intent = new Intent(context, Data.class);
             context.startActivity(intent);
         }
+    }
+
+    //pilih rumah sakit
+    public void dml(String query){
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL(query);
+
+    }
+    public String[][] cari_array(String query, int baris, int kolom){
+        String[][] data = new String[baris][kolom];
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        int counter_baris = 0;
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()){
+            for (int i=0; i<kolom; i++){
+                data[counter_baris][i] = cursor.getString(i);
+            }
+            counter_baris++;
+        }
+
+        return data;
+    }
+    public String cari(String query){
+        String hasil = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()){
+            hasil = cursor.getString(0);
+        }
+        return hasil;
     }
 }
 
