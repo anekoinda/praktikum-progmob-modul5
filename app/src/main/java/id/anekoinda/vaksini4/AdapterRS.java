@@ -27,9 +27,9 @@ public class AdapterRS extends RecyclerView.Adapter<AdapterRS.MyViewHolder>{
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            txtVaksin = itemView.findViewById(R.id.nama_vaksin);
-            txtNama = itemView.findViewById(R.id.nama_lokasi);
-            txtAlamat = itemView.findViewById(R.id.jalan);
+//            txtVaksin = itemView.findViewById(R.id.nama_vaksin);
+//            txtNama = itemView.findViewById(R.id.nama_lokasi);
+//            txtAlamat = itemView.findViewById(R.id.jalan);
         }
     }
 
