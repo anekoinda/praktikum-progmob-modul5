@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     TextView covidPositif, covidNegatif, covidMeninggal;
     RecyclerView recyclerView;
     private ArrayList<ModelRs> dataholder = new ArrayList<>();
+    String nik;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_data_rs);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Intent i = getIntent();
+        nik = (i.getExtras().getString("NIK"));
 
         Cursor cursorRs = new DBHelper(this).readDataRs();
 
@@ -98,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.profil){
-            startActivity(new Intent(this, Profile.class));
+            Intent intent = new Intent(getApplicationContext(), Profile.class);
+            intent.putExtra("NIK", nik);
+            startActivity(intent);
+//            startActivity(new Intent(this, Profile.class));
         } else if (item.getItemId() == R.id.tiket) {
             startActivity(new Intent(this, TiketPendaftaran.class));
         } else if (item.getItemId() == R.id.logout) {

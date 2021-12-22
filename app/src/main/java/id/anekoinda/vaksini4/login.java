@@ -44,6 +44,7 @@ public class login extends AppCompatActivity {
                     if(checknikpass == true){
                         Toast.makeText(login.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("NIK", txt_nik);
                         startActivity(intent);
                    }else{
                         Toast.makeText(login.this, "Login Gagal", Toast.LENGTH_SHORT).show();

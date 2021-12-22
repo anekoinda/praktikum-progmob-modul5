@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE data_vaksin(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, jenis_kelamin TEXT, kondisi_kesehatan TEXT, persentase_kondisi TEXT, keterangan TEXT DEFAULT '', is_valid TEXT)");
-        db.execSQL("CREATE TABLE data_registrasi(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, password TEXT)");
+        db.execSQL("CREATE TABLE data_registrasi(id INTEGER PRIMARY KEY AUTOINCREMENT, nik TEXT, nama TEXT, telepon TEXT, password TEXT)");
         db.execSQL("CREATE TABLE data_covid(positif INT, negatif INT, meninggal INT)");
         db.execSQL("INSERT INTO " + "data_covid" + "(positif, negatif, meninggal) VALUES (2000, 454, 23)");
         db.execSQL("CREATE TABLE data_rs(id_rs INT PRIMARY KEY, nama_rs TEXT, jalan TEXT, waktu TEXT)");
@@ -58,6 +58,29 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
         } else {
             return true;
+        }
+    }
+
+    public Cursor getUser(String nik){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from data_registrasi where nik = " + nik, null);
+        return cursor;
+    }
+
+    void updateUser(Integer id, String nik, String nama, String telepon){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("nik", nik);
+        cv.put("nama", nama);
+        cv.put("telepon", telepon);
+
+        long result = db.update("data_registrasi", cv,
+                "id" + "='" + id + "'", null);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Intent intent = new Intent(context, login.class);
+            context.startActivity(intent);
         }
     }
 
@@ -127,4 +150,6 @@ public class DBHelper extends SQLiteOpenHelper {
             context.startActivity(intent);
         }
     }
+
+
 }
