@@ -15,31 +15,26 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="24dp"
         android:orientation="vertical">
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rumah Sakit Penyedia Vaksin "
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/blackfont"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Astrazeneca"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/blackfont"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
+            android:text="Rumah Sakit Penyedia Vaksin "
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/blackfont"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih satu tempat penyedia vaksinasi"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/greyfont"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"/>
     </LinearLayout>
 
     <!-- TEMPAT PELAKSANAAN -->

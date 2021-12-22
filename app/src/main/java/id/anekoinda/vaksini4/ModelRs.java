@@ -1,7 +1,7 @@
 package id.anekoinda.vaksini4;
 
 public class ModelRs {
-    String id_rs, nama_rs, jalan, waktu, id_vaksin;
+    String id_rs, nama_rs, jalan, waktu, vaksin;
 
 
     public String getId_rs() {
@@ -36,19 +36,19 @@ public class ModelRs {
         this.waktu = waktu;
     }
 
-    public String getId_vaksin() {
-        return id_vaksin;
+    public String getVaksin() {
+        return vaksin;
     }
 
-    public void setId_vaksin(String id_vaksin) {
-        this.id_vaksin = id_vaksin;
+    public void setVaksin(String vaksin) {
+        this.vaksin = vaksin;
     }
 
-    public ModelRs(String id_rs, String nama_rs, String jalan, String waktu, String id_vaksin){
+    public ModelRs(String id_rs, String nama_rs, String jalan, String waktu, String vaksin){
         this.id_rs = id_rs;
         this.nama_rs = nama_rs;
         this.jalan = jalan;
         this.waktu = waktu;
-        this.id_vaksin = id_vaksin;
+        this.vaksin = vaksin;
     }
 }
