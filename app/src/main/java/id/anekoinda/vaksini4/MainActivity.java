@@ -2,6 +2,8 @@ package id.anekoinda.vaksini4;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -28,34 +30,54 @@ import android.widget.Toast;
 
 import static java.sql.Types.NULL;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-    static int kondisi_kesehatan=0;
     Button buttonVaksin;
     SQLiteDatabase sqLiteDatabase;
-    EditText nik, nama, telepon;
-    CheckBox check_tidak, check_flu, check_hamil;
-    RadioGroup radioGroup;
-    RadioButton jenis_kelamin;
-    SeekBar seekbar_kondisi;
-    TextView persentase_kondisi;
-    String keterangan;
-    String is_valid;
-    Cursor cursor;
+    TextView covidPositif, covidNegatif, covidMeninggal;
+    RecyclerView recyclerView;
+    private ArrayList<ModelRs> dataholder = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBHelper dbHelper = new DBHelper(MainActivity.this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        SQLiteDatabase dbWrite = dbHelper.getWritableDatabase();
-        dbWrite.execSQL("INSERT INTO tb_data_vaksin VALUES('22.500','900','899')");
-        cursor = db.rawQuery("SELECT*FROM tb_data_vaksin", null);
-        cursor.moveToFirst();
-//        for (int i = 0; i<cursor.getCount(); i++){
-//            cursor.getString(1), cursor.getString(1), cursor.getString(1);
-//        }
+        DBHelper db = new DBHelper(this);
+
+        recyclerView = (RecyclerView) findViewById(R.id.rv_data_rs);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Cursor cursorRs = new DBHelper(this).readDataRs();
+
+        while(cursorRs.moveToNext()){
+            ModelRs obj = new ModelRs(cursorRs.getString(0), cursorRs.getString(1), cursorRs.getString(2), cursorRs.getString(3));
+            dataholder.add(obj);
+        }
+
+        AdapterRS adapter = new AdapterRS(dataholder, MainActivity.this, sqLiteDatabase);
+        recyclerView.setAdapter(adapter);
+
+        covidPositif = findViewById(R.id.covidPositif);
+        covidNegatif = findViewById(R.id.covidNegatif);
+        covidMeninggal = findViewById(R.id.covidMeninggal);
+        Cursor cursor = new DBHelper(this).readDataCovid();
+
+        if(cursor.moveToFirst()){
+            int positif = cursor.getColumnIndex("positif");
+            int negatif = cursor.getColumnIndex("negatif");
+            int meninggal = cursor.getColumnIndex("meninggal");
+
+            covidNegatif.setText(cursor.getString(negatif));
+            covidPositif.setText(cursor.getString(positif));
+            covidMeninggal.setText(cursor.getString(meninggal));
+        }
+
+        cursor.close();
+        db.close();
+
         buttonVaksin = findViewById(R.id.buttonVaksin);
+        buttonVaksin.bringToFront();
         buttonVaksin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -16,7 +16,8 @@ public class DBHelper extends SQLiteOpenHelper {
     private final Context context;
 
     public DBHelper(Context context) {
-        super(context, "vaksini.db", null, 1);
+        super(context, "database_vaksini", null, 1);
+        context.openOrCreateDatabase("database_vaksini", context.MODE_PRIVATE, null);
         this.context = context;
     }
 
@@ -24,11 +25,17 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE data_vaksin(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, jenis_kelamin TEXT, kondisi_kesehatan TEXT, persentase_kondisi TEXT, keterangan TEXT DEFAULT '', is_valid TEXT)");
         db.execSQL("CREATE TABLE data_registrasi(nik TEXT PRIMARY KEY, nama TEXT, telepon TEXT, password TEXT)");
+        db.execSQL("CREATE TABLE data_covid(positif INT, negatif INT, meninggal INT)");
+        db.execSQL("INSERT INTO " + "data_covid" + "(positif, negatif, meninggal) VALUES (2000, 454, 23)");
+        db.execSQL("CREATE TABLE data_rs(id_rs INT PRIMARY KEY, nama_rs TEXT, jalan TEXT, waktu TEXT)");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu) VALUES (1,'RS PTN Udayana', 'Jalan RS Unud, Jimbaran, Kuta Selatan, Badung, Bali', '12 Desember 2021 10.00 WITA')");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu) VALUES (2,'RS Wangaya', 'Jalan RS Unud, Jimbaran, Kuta Selatan, Badung, Bali', '12 Desember 2021 10.00 WITA')");
+        db.execSQL("INSERT INTO " + "data_rs" + "(id_rs, nama_rs, jalan, waktu) VALUES (3,'RS Sanglah', 'Jalan RS Unud, Jimbaran, Kuta Selatan, Badung, Bali', '12 Desember 2021 10.00 WITA')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS vaksini.db");
+        db.execSQL("DROP TABLE IF EXISTS database_vaksini");
         onCreate(db);
     }
 
@@ -72,6 +79,20 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor readalldata() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = ("SELECT*FROM data_vaksin ORDER BY nik ASC");
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+    public Cursor readDataCovid() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = ("SELECT*FROM data_covid");
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+    public Cursor readDataRs() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = ("SELECT*FROM data_rs ORDER BY id_rs ASC LIMIT 3");
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }

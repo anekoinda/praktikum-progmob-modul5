@@ -9,9 +9,6 @@
         android:id="@+id/place"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"
         android:orientation="horizontal">
 
         <com.google.android.material.card.MaterialCardView
@@ -51,12 +48,22 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/nama_lokasi"
+                            android:id="@+id/nama"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="RS PTN Udayana"
                             android:fontFamily="@font/poppins_medium"
                             android:textColor="@color/blackfont"
+                            android:textSize="16sp"
+                            android:layout_marginLeft="10dp"/>
+
+                        <TextView
+                            android:id="@+id/waktu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12 Desember 2021 19.00"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/red"
                             android:textSize="16sp"
                             android:layout_marginLeft="10dp"/>
 
