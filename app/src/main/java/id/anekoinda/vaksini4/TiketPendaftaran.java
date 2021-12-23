@@ -1,5 +1,7 @@
 package id.anekoinda.vaksini4;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,13 +10,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -23,28 +30,26 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import androidmads.library.qrgenearator.QRGContents;
+import androidmads.library.qrgenearator.QRGEncoder;
+
 public class TiketPendaftaran extends AppCompatActivity {
-    //private static final String TAG = "ceknik";
     private TextView txtNik, txtNama, txtTelepon, txtJenkel, txtKondisi, txtPersentasi;
     ImageView qr_output;
-    Button buttonBack;
+    Button button_qr;
     int Id;
     String Tiket;
     String nik, nama, telepon, jenis_kelamin, kondisi_kesehatan, persentasi_kondisi;
+    QRGEncoder qrgEncoder;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tiket_pendaftaran);
 
-        //Bundle extras = getIntent().getExtras();
-        //String nik = extras.getString("NIK");
-        //String pendaftaran = nik;
-        //pendaftaran.trim();
-        //Log.i(TAG, "nik" + pendaftaran);
-
         qr_output = findViewById(R.id.qr_output);
-        buttonBack = findViewById(R.id.buttonBack);
+        button_qr = findViewById(R.id.button_qr);
 
         txtNik = findViewById(R.id.txt_nik);
         txtNama = findViewById(R.id.txt_nama);
@@ -58,7 +63,7 @@ public class TiketPendaftaran extends AppCompatActivity {
         Tiket = i.getExtras().getString("NIK");
         DBHelper dbHelper = new DBHelper(this);
         Cursor cursor = dbHelper.getTiket(Tiket);
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             Id = cursor.getInt(0);
             nik = cursor.getString(1);
             nama = cursor.getString(2);
@@ -74,27 +79,30 @@ public class TiketPendaftaran extends AppCompatActivity {
         txtKondisi.setText(kondisi_kesehatan);
         txtPersentasi.setText(persentasi_kondisi);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        button_qr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-
-               // QRCodeWriter writer = new QRCodeWriter();
-                //try {
-                  // BitMatrix bitMatrix = writer.encode(pendaftaran, BarcodeFormat.QR_CODE, 512, 512);
-                  // int width = bitMatrix.getWidth();
-                  // int height = bitMatrix.getHeight();
-                  // Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                  // for (int x = 0; x < width; x++) {
-                      // for (int y = 0; y < height; y++) {
-                           // bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
-                        //}
-                   // }
-                    //((ImageView) findViewById(R.id.qr_output)).setImageBitmap(bmp);
-                   //} catch (WriterException e) {
-                    //e.printStackTrace();
-               //}
+                QRCodeWriter writer = new QRCodeWriter();
+                String tiket_nik = nik.trim();
+                if (TextUtils.isEmpty(txtNik.getText().toString())) {
+                    Toast.makeText(TiketPendaftaran.this, "Enter some text to generate QR Code", Toast.LENGTH_SHORT).show();
+                } else {
+                    WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+                    Display display = manager.getDefaultDisplay();
+                    Point point = new Point();
+                    display.getSize(point);
+                    int width = point.x;
+                    int height = point.y;
+                    int dimen = width < height ? width : height;
+                    dimen = dimen * 3 / 4;
+                    qrgEncoder = new QRGEncoder(txtNik.getText().toString(), null, QRGContents.Type.TEXT, dimen);
+                    try {
+                        bitmap = qrgEncoder.encodeAsBitmap();
+                        qr_output.setImageBitmap(bitmap);
+                    } catch (WriterException e) {
+                        Log.e("Tag", e.toString());
+                    }
+                }
             }
         });
     }

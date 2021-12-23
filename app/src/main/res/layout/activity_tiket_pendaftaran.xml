@@ -320,7 +320,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:text="Tunjukkan QR pada saat melakukan vaksinasi"
+            android:text="Tekan tombol untuk generate QR"
             android:textColor="@color/greyfont"
             android:textSize="14sp"
             android:layout_marginBottom="20dp"/>
@@ -342,7 +342,7 @@
         android:layout_marginRight="16dp"
         android:gravity="bottom">
     <Button
-        android:id="@+id/buttonBack"
+        android:id="@+id/button_qr"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="24dp"
@@ -350,7 +350,7 @@
         android:background="@drawable/custom_button"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="OK, LANJUTKAN"
+        android:text="TAMPILKAN QR"
         android:textColor="@color/white"
         android:textSize="16sp"/>
     </LinearLayout>
