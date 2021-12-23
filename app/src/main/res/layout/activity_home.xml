@@ -47,6 +47,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/waktu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
@@ -114,11 +115,21 @@
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/nama_lokasi"
+                            android:id="@+id/nama_rs"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="RS PTN Udayana"
                             android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/blackfont"
+                            android:textSize="16sp"
+                            android:layout_marginLeft="10dp"/>
+
+                        <TextView
+                            android:id="@+id/vaksin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Astrazeneca"
+                            android:fontFamily="@font/poppins_regular"
                             android:textColor="@color/blackfont"
                             android:textSize="16sp"
                             android:layout_marginLeft="10dp"/>

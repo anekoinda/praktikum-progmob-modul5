@@ -7,11 +7,6 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/tiket"
-        android:title="Tiket"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/logout"
         android:title="Logout"
         app:showAsAction="never" />

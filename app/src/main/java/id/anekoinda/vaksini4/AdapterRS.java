@@ -39,7 +39,7 @@ public class AdapterRS extends RecyclerView.Adapter<AdapterRS.viewholder> {
 
     @Override
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
-        holder.nama.setText(dataholder.get(position).getNama_rs());
+        holder.nama_rs.setText(dataholder.get(position).getNama_rs());
         holder.jalan.setText(dataholder.get(position).getJalan());
         holder.waktu.setText(dataholder.get(position).getWaktu());
         holder.vaksin.setText(dataholder.get(position).getVaksin());
@@ -51,11 +51,11 @@ public class AdapterRS extends RecyclerView.Adapter<AdapterRS.viewholder> {
     }
 
     class viewholder extends RecyclerView.ViewHolder{
-        TextView nama, jalan, waktu, vaksin;
+        TextView nama_rs, jalan, waktu, vaksin;
         Button button_delete, button_update;
         public viewholder(@NonNull View itemView){
             super(itemView);
-            nama = (TextView) itemView.findViewById(R.id.nama);
+            nama_rs = (TextView) itemView.findViewById(R.id.nama_rs);
             jalan = (TextView) itemView.findViewById(R.id.jalan);
             waktu = (TextView) itemView.findViewById(R.id.waktu);
             vaksin = (TextView) itemView.findViewById(R.id.vaksin);

@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         buttonVaksin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
+                Intent intent = new Intent(getApplicationContext(), PilihRumahSakit.class);
                 startActivity(intent);
             }
         });
@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Profile.class);
             intent.putExtra("NIK", nik);
             startActivity(intent);
-        } else if (item.getItemId() == R.id.tiket) {
-            startActivity(new Intent(this, TiketPendaftaran.class));
+//        } else if (item.getItemId() == R.id.tiket) {
+//            startActivity(new Intent(this, TiketPendaftaran.class));
         } else if (item.getItemId() == R.id.logout) {
             startActivity(new Intent(this, login.class));
         }

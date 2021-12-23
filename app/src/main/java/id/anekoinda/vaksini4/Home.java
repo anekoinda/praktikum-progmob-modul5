@@ -34,7 +34,7 @@ public class Home extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton jenis_kelamin;
     SeekBar seekbar_kondisi;
-    TextView persentase_kondisi;
+    TextView persentase_kondisi, nama_rs, jalan, waktu , vaksin;
     String keterangan;
     String is_valid;
 
@@ -43,6 +43,19 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         DBHelper db = new DBHelper(this);
+
+        nama_rs = findViewById(R.id.nama_rs);
+        jalan = findViewById(R.id.jalan);
+        waktu = findViewById(R.id.waktu);
+        vaksin = findViewById(R.id.vaksin);
+
+        if (getIntent().getBundleExtra("datars") != null) {
+            Bundle bundle = getIntent().getBundleExtra("datars");
+            nama_rs.setText(bundle.getString("nama_rs"));
+            jalan.setText(bundle.getString("jalan"));
+            waktu.setText(bundle.getString("waktu"));
+            vaksin.setText(bundle.getString("vaksin"));
+        }
 
         nik = findViewById(R.id.input_nik);
         nama = findViewById(R.id.input_nama);
