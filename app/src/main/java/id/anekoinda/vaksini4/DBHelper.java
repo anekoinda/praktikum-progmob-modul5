@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -135,6 +136,12 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = ("SELECT*FROM data_rs");
         Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+    public Cursor readPendaftaran(String nik) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from data_vaksin where nik = " + nik, null);
         return cursor;
     }
 

@@ -33,7 +33,6 @@ public class Profile extends AppCompatActivity {
         btnVaksin = findViewById(R.id.buttonVaksin);
 
         Intent i = getIntent();
-//        edNik.setText(i.getExtras().getString("NIK"));
 
         nikUser = i.getExtras().getString("NIK");
         DBHelper dbHelper = new DBHelper(this);

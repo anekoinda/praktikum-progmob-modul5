@@ -27,6 +27,10 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 
 import static java.sql.Types.NULL;
 
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         buttonVaksin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PilihRumahSakit.class);
+                Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
             }
         });
@@ -104,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Profile.class);
             intent.putExtra("NIK", nik);
             startActivity(intent);
-//            startActivity(new Intent(this, Profile.class));
         } else if (item.getItemId() == R.id.tiket) {
             startActivity(new Intent(this, TiketPendaftaran.class));
         } else if (item.getItemId() == R.id.logout) {

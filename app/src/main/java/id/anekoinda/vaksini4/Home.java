@@ -102,8 +102,10 @@ public class Home extends AppCompatActivity {
 
                 Boolean checkinsert = db.insert(txt_nik, txt_nama, txt_telepon, txt_jenkel, txt_kondisi, txt_persentase, " ", "0");
                 if(checkinsert == true){
-                    Toast.makeText(Home.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), TiketPendaftaran.class);
+                    Bundle data1 = new Bundle();
+                    data1.putString("NIK", txt_nik);
+                    intent.putExtras(data1);
                     startActivity(intent);
                 }else{
                     Toast.makeText(Home.this, "Pendaftaran gagal", Toast.LENGTH_SHORT).show();
