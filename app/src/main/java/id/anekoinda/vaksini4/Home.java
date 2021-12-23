@@ -44,8 +44,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         DBHelper db = new DBHelper(this);
 
-        keterangan = " ";
-        is_valid = "0";
         nik = findViewById(R.id.input_nik);
         nama = findViewById(R.id.input_nama);
         telepon = findViewById(R.id.input_telepon);
@@ -100,7 +98,7 @@ public class Home extends AppCompatActivity {
                 String txt_kondisi = kondisi_kesehatan;
                 String txt_persentase = String.valueOf(seekbar_kondisi.getProgress());
 
-                Boolean checkinsert = db.insert(txt_nik, txt_nama, txt_telepon, txt_jenkel, txt_kondisi, txt_persentase, " ", "0");
+                Boolean checkinsert = db.insert(txt_nik, txt_nama, txt_telepon, txt_jenkel, txt_kondisi, txt_persentase);
                 if(checkinsert == true){
                     Intent intent = new Intent(getApplicationContext(), TiketPendaftaran.class);
                     Bundle data1 = new Bundle();
